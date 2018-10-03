@@ -54,7 +54,7 @@
       become: false
       local_action:
         module: wait_for
-         host={{ inventory_hostname }}
+         host={{ ansible_ec2_local_ipv4 }}
          port=22
          delay=1
          timeout=300
