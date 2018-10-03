@@ -1,38 +1,23 @@
 ---
-- name: Install Database
-  hosts: db
-  tasks:
-  - name: Install mariadb
-    yum:
-      name: mariadb
-      state: installed
-    tags:
-      - install
+- name: Install mariadb
+  yum:
+    name: mariadb
+    state: installed
+  tags:
+    - install
 
-- name: Stopping Database Services
-  become: "yes"
-  gather_facts: "no"
-  hosts:
-    - web
-  tasks:
-    - name: Stopping mariadb
-      service:
-        name: mariadb
-        state: stopped
-      tags:
-        - stop_database
+- name: Stopping mariadb
+  service:
+    name: mariadb
+    state: stopped
+  tags:
+    - stop_database
 
-- name: Starting Database Services
-  become: "yes"
-  gather_facts: "no"
-  hosts:
-    - web
-  tasks:
-    - name: Start mariadb
-      service:
-        name: mariadb
-        state: started
-      tags:
-        - install
-        - start_database
+- name: Start mariadb
+  service:
+    name: mariadb
+    state: started
+  tags:
+    - install
+    - start_database
 
