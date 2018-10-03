@@ -3,7 +3,7 @@
   become: yes
   gather_facts: yes
   hosts:
-    - tag_patching_group_1
+    - all
   vars_files:
     - vars/vault
   roles:
@@ -23,12 +23,11 @@
             pool_ids: "{{ rhn_pool_id }}"
           when: sub_status.rc == 1
       when: ansible_distribution == "RedHat" and not ansible_domain == "ec2.internal"
-#commnet 
 - name: Patch RHEL/CentOS server(s)
   become: "yes"
   gather_facts: "no"
   hosts:
-    - tag_patching_group_1
+    - all
   tasks:
     - name: Downloading updates
       command: yum update --downloadonly
