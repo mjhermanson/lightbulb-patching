@@ -9,7 +9,7 @@
     tags:
       - install
 
-- name: Stopping Web Services
+- name: Stopping Database Services
   become: "yes"
   gather_facts: "no"
   hosts:
@@ -22,7 +22,7 @@
       tags:
         - stop_database
 
-- name: Starting Web Services
+- name: Starting Database Services
   become: "yes"
   gather_facts: "no"
   hosts:

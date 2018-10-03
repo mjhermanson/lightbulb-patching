@@ -27,7 +27,7 @@
   hosts:
     - web
   tasks:
-    - name: Stopping apache
+    - name: Starting apache
       service:
         name: httpd
         state: started
