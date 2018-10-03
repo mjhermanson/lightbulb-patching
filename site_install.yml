@@ -1,7 +1,4 @@
 ---
-- name: Site Patching Demo
-  hosts: all
-
 - name: "Installing sofware"
   import_tasks: webserver.yml
   tags: 
