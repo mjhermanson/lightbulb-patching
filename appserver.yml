@@ -1,0 +1,25 @@
+---
+#TODO: add a real app
+- name: Stopping App Services
+  become: "yes"
+  gather_facts: "no"
+  hosts:
+    - web
+  tasks:
+    - name: Stopping JBOSS
+      pause:
+        seconds: 3
+      tags:
+        - stop_jboss
+
+- name: Starting Application Services
+  become: "yes"
+  gather_facts: "no"
+  hosts:
+    - web
+  tasks:
+    - name: Starting JBOSS
+      pause:
+        seconds: 3 
+      tags:
+        - start_jboss
