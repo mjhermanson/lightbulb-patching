@@ -28,7 +28,7 @@
 
 - name: Install Webserver
   hosts: web
-  task:
+  tasks:
   - name: Install apache
     yum:
       name: httpd
