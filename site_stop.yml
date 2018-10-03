@@ -20,4 +20,4 @@
   tasks: 
     - include_tasks: database.yml
       tags: 
-        - stopping_database
+        - stop_database
