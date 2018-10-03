@@ -1,37 +1,21 @@
 ---
-- name: Install Webserver
-  hosts: web
-  tasks:
-  - name: Install apache
-    yum:
-      name: httpd
-      state: installed
-    tags:
-      - install
-- name: Stopping Web Services
-  become: "yes"
-  gather_facts: "no"
-  hosts:
-    - web
-  tasks:
-    - name: Stopping apache
-      service:
-        name: httpd
-        state: stopped
-      tags:
-        - stop_webserver
-
-- name: Starting Web Services
-  become: "yes"
-  gather_facts: "no"
-  hosts:
-    - web
-  tasks:
-    - name: Starting apache
-      service:
-        name: httpd
-        state: started
-      tags:
-        - install
-        - start_webserver
+- name: Install apache
+  yum:
+    name: httpd
+    state: installed
+  tags:
+    - install
+- name: Stopping apache
+  service:
+    name: httpd
+    state: stopped
+  tags:
+    - stop_webserver
+- name: Starting apache
+  service:
+    name: httpd
+    state: started
+  tags:
+    - install
+    - start_webserver
 

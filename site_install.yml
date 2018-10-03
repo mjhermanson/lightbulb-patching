@@ -1,13 +1,22 @@
 ---
 - name: "Installing webserver"
-  include_playbook: webserver.yml
-  tags: 
-    - install
+  hosts: web
+  become: yes
+  tasks: 
+    - include_tasks: webserver.yml
+      tags: 
+        - install
 - name: "Installing appserver"
-  include_playbook: appserver.yml
-  tags: 
-    - install
+  hosts: web
+  become: yes
+  tasks: 
+    - include_playbook: appserver.yml
+      tags: 
+        - install
 - name: "Installing database"
-  include_playbook: database.yml
-  tags: 
-    - install
+  hosts: web
+  become: yes
+  tasks: 
+    - include_playbook: database.yml
+      tags: 
+        - install
