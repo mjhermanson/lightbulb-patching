@@ -18,6 +18,6 @@
   hosts: db
   become: yes
   tasks: 
-    - include_playbook: database.yml
+    - include_tasks: database.yml
       tags: 
         - install
