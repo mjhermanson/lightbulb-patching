@@ -1,0 +1,20 @@
+---
+- name: "print inventory hostname and uuid"
+  debug:
+    msg: "System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
+
+- name: Configure SSH
+  template:
+    src: templates/sshd_config
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0600
+  notify:
+    - restart sshd
+
+- name: Generate MOTD/banner
+  import_tasks: motd.yml
+
+- name: Generate /etc/ansible/roles.txt
+  import_tasks: dynamic_roles.yml

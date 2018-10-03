@@ -1,0 +1,44 @@
+---
+- name: Patching Group2 (ubuntu)
+  hosts: tag_patching_group_2
+  gather_facts: yes
+  become: yes
+  vars:
+    - ansuble_ssh_user: ubuntu
+
+  tasks:
+
+    # Use a block to perform tasks conditionally—only if running Ubuntu 12.04.
+    - block:
+
+      # Now would be a good time to take a backup if you can trigger an
+      # automated backup!
+
+      - name: Upgrade all packages to the latest version
+        apt: update_cache=yes upgrade=full
+
+      - name: Ensure update-manager-core is installed.
+        apt: name=update-manager-core state=present
+
+      - name: Run do-release-upgrade non-interactively.
+        command: do-release-upgrade -f DistUpgradeViewNonInteractive
+        ignore_errors: true
+
+      - name: reboot system
+        shell: sleep 2 && shutdown -r now "Ansible package updates triggered"
+        async: 1
+        poll: 0
+        ignore_errors: true
+        register: reboot
+
+      - name: waiting for server to come back
+        become: false
+        local_action:
+          module: wait_for
+           host={{ inventory_hostname }}
+           port=22
+           delay=1
+           timeout=300
+        when: reboot is defined
+
+      when: ansible_distribution == 'Ubuntu'

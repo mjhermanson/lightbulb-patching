@@ -1,0 +1,10 @@
+---
+- name: Patching webserver
+  become: "yes"
+  gather_facts: "no"
+  hosts: all
+  tasks:
+    # A dummy pause to simulate Stopping services
+    - name: Stopping Services
+      pause:
+        seconds: 3

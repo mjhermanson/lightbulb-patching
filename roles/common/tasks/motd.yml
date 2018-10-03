@@ -1,0 +1,8 @@
+- name: Set ENVIRONMENT in MOTD
+  template:
+    src: templates/issue.net
+    dest: /etc/issue.net
+    owner: root
+    group: root
+    mode: 0644
+

@@ -1,0 +1,6 @@
+---
+- name: Ensure WEBSERVER is in roles.txt
+  lineinfile:
+    path: /etc/ansible/roles.txt
+    line: 'ROLE: webserver'
+    create: yes

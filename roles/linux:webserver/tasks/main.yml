@@ -1,0 +1,11 @@
+---
+# tasks file for linux:webserver
+- name: Checking Operating System configurations (os.yml)
+  hosts: all
+  roles:
+    - linux
+
+- name: install apache
+  pkg:
+    name: httpd
+    state: present

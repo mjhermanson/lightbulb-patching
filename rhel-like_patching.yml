@@ -1,0 +1,62 @@
+---
+- name: check RHEL agents and subscription state
+  become: yes
+  gather_facts: yes
+  hosts:
+    - tag_patching_group_1
+  vars_files:
+    - vars/vault
+  roles:
+    - { role: redhataccess.redhat-access-insights-client, when: ansible_distribution == "RedHat" }
+  tasks:
+    - block:
+        - name: check to see if system is already registered
+          command: subscription-manager status
+          register: sub_status
+          ignore_errors: true
+
+        - name: Register system
+          redhat_subscription:
+            state: present
+            username: "{{ rhn_user }}"
+            password: "{{ rhn_pass }}"
+            pool_ids: "{{ rhn_pool_id }}"
+          when: sub_status.rc == 1
+      when: ansible_distribution == "RedHat" and not ansible_domain == "ec2.internal"
+#commnet 
+- name: Patch RHEL/CentOS server(s)
+  become: "yes"
+  gather_facts: "no"
+  hosts:
+    - tag_patching_group_1
+  tasks:
+    - name: Downloading updates
+      command: yum update --downloadonly
+      ignore_warnings: yes
+    - name: Update all available packages
+      yum: name=* state=latest
+      notify: reboot sequence
+  handlers:
+    - name: reboot sequence
+      changed_when: "true"
+      debug: msg='trigger machine reboot sequence'
+      notify:
+        - reboot system
+        - waiting for server to come back
+
+    - name: reboot system
+      shell: sleep 2 && shutdown -r now "Ansible package updates triggered"
+      async: 1
+      poll: 0
+      ignore_errors: true
+      register: reboot
+    - name: waiting for server to come back
+
+      become: false
+      local_action:
+        module: wait_for
+         host={{ inventory_hostname }}
+         port=22
+         delay=1
+         timeout=300
+      when: reboot is defined

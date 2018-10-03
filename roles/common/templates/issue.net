@@ -1,0 +1,5 @@
+This server is in the {{ git_branch }} environment
+
+{% if scheduled_downtime %}
+Beware all who enter. THERE BE DRAGONS!
+{% endif %}

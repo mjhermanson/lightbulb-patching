@@ -1,0 +1,15 @@
+---
+- name: Run command with RunAs
+  gather_facts: "no"
+  vars_files:
+    - vars/windows_become.yml
+  hosts:
+#    - "{{ windows_patch_hosts }}"
+    - windows
+  tasks:
+    - name: Run whoami
+      become: yes
+      become_method: runas
+      become_user: administrator
+      become_password: "{{ ansible_become_password }}"
+      win_shell: whoami

@@ -1,0 +1,42 @@
+---
+# tasks file for windows
+- name: Ensure user bob is present
+  win_user:
+    name: bob
+    password: B0bP4ssw0rd
+    state: present
+    groups:
+      - Users
+      - Remote Desktop Users
+      - Administrators
+
+- name: Install multiple packages
+  win_chocolatey:
+    name: '{{ item }}'
+    state: present
+  with_items:
+  - git
+  - googlechrome 
+
+- name: use win_dsc module with the Registry DSC resource
+  win_dsc:
+    resource_name: Registry
+    Ensure: present
+    Key: HKEY_LOCAL_MACHINE\SOFTWARE\ExampleKey
+    ValueName: TestValue
+    ValueData: TestData
+
+- name: Install Remote Desktop Connection Manager from msi
+  win_package:
+    path: https://download.microsoft.com/download/A/F/0/AF0071F3-B198-4A35-AA90-C68D103BDCCF/rdcman.msi
+    product_id: '{0240359E-6A4C-4884-9E94-B397A02D893C}'
+    state: present
+
+- name: Install the Visual C thingy
+  win_package:
+    path: http://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe
+    product_id: '{CF2BEA3C-26EA-32F8-AA9B-331F7E34BA97}'
+    arguments: /install /passive /norestart
+
+- name: Run powershell script
+  script: files/helloworld.ps1

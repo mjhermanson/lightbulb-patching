@@ -1,0 +1,15 @@
+---
+- name: Site Patching Demo
+  hosts: all
+
+- name: "Stopping Services"
+  import_playbook: application_patching.yml
+
+- name: "RHEL-like OS Patches"
+  import_playbook: rhel-like_patching.yml
+
+- name: "Ubuntu Patching"
+  import_playbook: ubuntu_patching.yml
+
+#- name: "Windows OS patching Patching"
+  #import_playbook: windows_patching.yml
