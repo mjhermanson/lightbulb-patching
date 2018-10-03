@@ -34,4 +34,4 @@
       name: mariadb
       state: installed
     tags:
-      - install_database
+      - install

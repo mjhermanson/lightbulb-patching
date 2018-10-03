@@ -3,14 +3,14 @@
   hosts: all
   tasks:
   - name: "Installing sofware"
-    import_tasks: webserver.yml
+    import_playbook: webserver.yml
     tags: 
-      - install_webserver
+      - install
   - name: "Installing sofware"
-    import_tasks: appserver.yml
+    import_playbook: appserver.yml
     tags: 
-      - install_appserver
+      - install
   - name: "Installing sofware"
-    import_tasks: database.yml
+    import_playbook: database.yml
     tags: 
-      - install_database
+      - install

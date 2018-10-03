@@ -34,4 +34,4 @@
       name: httpd
       state: installed
     tags:
-      - install_webserver
+      - install
