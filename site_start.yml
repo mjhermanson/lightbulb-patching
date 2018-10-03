@@ -1,0 +1,23 @@
+---
+- name: "Starting webserver"
+  hosts: web
+  become: yes
+  tasks: 
+    - include_tasks: webserver.yml
+      tags: 
+        - start_webserver
+# Enable this when we have an app to install
+#- name: "Installing appserver"
+#  hosts: app
+#  become: yes
+#  tasks: 
+#    - include_playbook: appserver.yml
+#      tags: 
+#        - install
+- name: "Starting database"
+  hosts: db
+  become: yes
+  tasks: 
+    - include_tasks: database.yml
+      tags: 
+        - start_database
