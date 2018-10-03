@@ -1,7 +1,7 @@
 ---
 - name: Install mariadb
   yum:
-    name: mariadb
+    name: mariadb-server
     state: installed
   tags:
     - install
@@ -15,7 +15,7 @@
 
 - name: Start mariadb
   service:
-    name: mariadb
+    name: mysql
     state: started
   tags:
     - install
