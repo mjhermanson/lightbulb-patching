@@ -1,4 +1,13 @@
 ---
+- name: Install Database
+  hosts: db
+  tasks:
+  - name: Install mariadb
+    yum:
+      name: mariadb
+      state: installed
+    tags:
+      - install
 
 - name: Stopping Web Services
   become: "yes"
@@ -24,14 +33,6 @@
         name: mariadb
         state: started
       tags:
+        - install
         - start_database
 
-- name: Install Database
-  hosts: db
-  task:
-  - name: Install mariadb
-    yum:
-      name: mariadb
-      state: installed
-    tags:
-      - install
