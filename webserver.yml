@@ -25,3 +25,13 @@
         state: started
       tags:
         - start_webserver
+
+- name: Install Webserver
+  hosts: web
+  task:
+  - name: Install apache
+    yum:
+      name: httpd
+      state: installed
+    tags:
+      - install_webserver

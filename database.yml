@@ -25,3 +25,13 @@
         state: started
       tags:
         - start_database
+
+- name: Install Database
+  hosts: db
+  task:
+  - name: Install mariadb
+    yum:
+      name: mariadb
+      state: installed
+    tags:
+      - install_database
