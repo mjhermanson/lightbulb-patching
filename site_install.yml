@@ -1,13 +1,16 @@
 ---
-- name: "Installing sofware"
-  import_tasks: webserver.yml
-  tags: 
-    - install_webserver
-- name: "Installing sofware"
-  import_tasks: appserver.yml
-  tags: 
-    - install_appserver
-- name: "Installing sofware"
-  import_tasks: database.yml
-  tags: 
-    - install_database
+- name: "Installing Software"
+  hosts: all
+  tasks:
+  - name: "Installing sofware"
+    import_tasks: webserver.yml
+    tags: 
+      - install_webserver
+  - name: "Installing sofware"
+    import_tasks: appserver.yml
+    tags: 
+      - install_appserver
+  - name: "Installing sofware"
+    import_tasks: database.yml
+    tags: 
+      - install_database
