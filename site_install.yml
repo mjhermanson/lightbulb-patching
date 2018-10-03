@@ -6,15 +6,16 @@
     - include_tasks: webserver.yml
       tags: 
         - install
-- name: "Installing appserver"
-  hosts: web
-  become: yes
-  tasks: 
-    - include_playbook: appserver.yml
-      tags: 
-        - install
+# Enable this when we have an app to install
+#- name: "Installing appserver"
+#  hosts: app
+#  become: yes
+#  tasks: 
+#    - include_playbook: appserver.yml
+#      tags: 
+#        - install
 - name: "Installing database"
-  hosts: web
+  hosts: db
   become: yes
   tasks: 
     - include_playbook: database.yml
