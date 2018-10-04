@@ -3,6 +3,7 @@
   hosts: localhost 
   tasks:
     - ec2_snapshot:
+        region: us-east-1
         instance_id: i-0397d983a96c17625
         device_name: /dev/sda1
         description: snapshot of ROOT from node1
