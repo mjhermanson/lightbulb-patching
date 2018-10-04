@@ -1,6 +1,6 @@
 ---
 - name: "Master site play for Linux"
-  hosts: tag_linux
+  hosts: linux
   vars_files:
     - vars/vault
   roles:
@@ -10,7 +10,7 @@
     - webservers
 
 - name: "Master site play for Windows"
-  hosts: tag_windows
+  hosts: windows
   vars_files:
     - vars/vault
     - vars/winrm.yml
