@@ -1,15 +1,29 @@
 ---
-- name: Site Patching Demo
-  hosts: all
+- name: "webserver"
+  hosts: web
+  become: yes
+  tags:
+    - webservers
+  tasks: 
+  roles: 
+    - webservers
 
-- name: "Stopping Services"
-  import_playbook: application_patching.yml
+# Enable this when we have an app to install
+#- name: "Installing appserver"
+#  hosts: app
+#  become: yes
+#  tags:
+#    - start_appserver
+#  tasks: 
+#    - include_playbook: appserver.yml
+#      tags: 
+#        - install
 
-- name: "RHEL-like OS Patches"
-  import_playbook: rhel-like_patching.yml
-
-- name: "Ubuntu Patching"
-  import_playbook: ubuntu_patching.yml
-
-#- name: "Windows OS patching Patching"
-  #import_playbook: windows_patching.yml
+- name: "Starting database"
+  hosts: db
+  become: yes
+  tags:
+    - database
+  tasks: 
+  roles: 
+    - databases

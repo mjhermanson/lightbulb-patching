@@ -4,3 +4,27 @@
     path: /etc/ansible/roles.txt
     line: 'ROLE: webserver'
     create: yes
+
+- name: Install apache
+  yum:
+    name: httpd
+    state: installed
+  tags:
+    - install
+    - configuration
+- name: Stopping apache
+  service:
+    name: httpd
+    state: stopped
+  tags:
+    - stop_webserver
+    - never
+- name: Ensure apache is running
+  service:
+    name: httpd
+    state: started
+  tags:
+    - install
+    - start_webserver
+    - configuration
+
