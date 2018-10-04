@@ -1,6 +1,6 @@
 ---
 - name: Take snapshots
-  hosts: all
+  hosts: localhost 
   tasks:
     - ec2_snapshot:
         instance_id: i-0397d983a96c17625
