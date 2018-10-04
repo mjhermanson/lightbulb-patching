@@ -1,4 +1,10 @@
 ---
+- name: Take snapshots
+  hosts: all
+  tasks:
+    - name: Calling Snapshot API
+      pause:
+        seconds: 3
 
 #- name: Create a snapshot
 #  vmware_guest_snapshot:
