@@ -4,29 +4,6 @@
 - debug:
     msg: "System {{ inventory_hostname }} is getting the generic LINUX role from {{ git_branch }}"
 
-- name: "Setting local hostname to match inventory"
-  hostname:
-    name: "{{ inventory_hostname }}"
-
-- name: check to see if system is already registered
-  command: subscription-manager status
-  register: sub_status
-  ignore_errors: true
-
-- name: Register system
-  redhat_subscription:
-    state: present
-    username: "{{ rhn_user }}"
-    password: "{{ rhn_pass }}"
-    pool_ids: "{{ rhn_pool_id }}"
-  when: sub_status.rc == 1
-
-- name: Disable all RHSM repositories
-  rhsm_repository:
-    name: 'rhel-7-server-htb-rpms'
-    state: disabled
-  ignore_errors: true
-
 - name: Install ntp
   yum: name=ntp state=present
   tags: ntp
