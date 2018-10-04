@@ -5,7 +5,7 @@
     create: yes
     line: 'ROLE: database'
 
-- name: Install mariadb
+- name: Ensuring mariadb is installed
   yum:
     name: mariadb-server
     state: installed
@@ -13,7 +13,7 @@
     - install
     - configuration
 
-- name: Stopping mariadb
+- name: Stopping mariadb (if needed)
   service:
     name: mariadb
     state: stopped

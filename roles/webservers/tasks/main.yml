@@ -5,7 +5,7 @@
     line: 'ROLE: webserver'
     create: yes
 
-- name: Install apache
+- name: Ensure apache is installed
   yum:
     name: httpd
     state: installed

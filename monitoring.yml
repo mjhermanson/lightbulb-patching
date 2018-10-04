@@ -1,6 +1,0 @@
----
-- name: Checking Monitoring related configurations (security.yml)
-  hosts: all
-  roles:
-    - monitoring-linux
-    - monitoring-windows
