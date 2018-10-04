@@ -20,7 +20,7 @@
   vars_files:
     - vars/vault
   roles:
-    - Webservers
+    - webservers
 
 
 - name: "Checking Windows Configuration"
