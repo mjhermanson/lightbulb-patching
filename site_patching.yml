@@ -19,8 +19,8 @@
 #      tags: 
 #        - install
 
-- name: "Starting database"
-  hosts: db
+- name: "Database"
+  hosts: all
   become: yes
   tags:
     - database
