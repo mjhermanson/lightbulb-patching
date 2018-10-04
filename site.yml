@@ -1,15 +1,29 @@
 ---
-- name: "Master site play for Linux"
+- name: "Checking Linux Configuration"
   hosts: linux
   vars_files:
     - vars/vault
   roles:
     - common
     - linux
-    - databases
-    - webservers
 
-- name: "Master site play for Windows"
+
+- name: "Checking Database Configuration"
+  hosts: db
+  vars_files:
+    - vars/vault
+  roles:
+    - databases
+
+- name: "Checking Webserver Configuration"
+  hosts: web
+  vars_files:
+    - vars/vault
+  roles:
+    - Webservers
+
+
+- name: "Checking Windows Configuration"
   hosts: windows
   vars_files:
     - vars/vault
