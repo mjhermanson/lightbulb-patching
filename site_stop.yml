@@ -4,8 +4,7 @@
   become: yes
   tasks: 
     - include_tasks: webserver.yml
-      tags: 
-        - stopping_webserver
+
 # Enable this when we have an app to install
 #- name: "Installing appserver"
 #  hosts: app
@@ -14,10 +13,9 @@
 #    - include_playbook: appserver.yml
 #      tags: 
 #        - install
+
 - name: "Stopping database"
   hosts: db
   become: yes
   tasks: 
     - include_tasks: database.yml
-      tags: 
-        - stop_database
