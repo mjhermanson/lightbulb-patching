@@ -28,3 +28,19 @@
     uid: 0
     group: root
     password: "{{ root_pw }}"
+
+- name: Configure SSH
+  template:
+    src: templates/sshd_config
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0600
+  notify:
+    - restart sshd
+
+- name: Generate MOTD/banner
+  import_tasks: motd.yml
+
+- name: Generate /etc/ansible/roles.txt
+  import_tasks: dynamic_roles.yml
