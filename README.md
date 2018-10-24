@@ -1,11 +1,9 @@
-# ansible
-ansible-axamples
+# Overview
+This project is to support a demo environment of Ansible's use cases. The names
+and refereces refer to an environment that runs elsewhere. 
 
-#loop.yml
-Example for looping through iDRAC interfaces and configuring a bunch of RAID card for JBOD. This was used as part of an openstack POC
+Feel free to use these playbooks as a starting point for your own playbooks
+as they are inteted to be a good starting point. 
 
-#patching.yml
-Patches a RHEL/CentOS host w/ reboot
-
-#make_template.yml
-prepares a linux RHEL 6/7 server to become a template. Aims to remove all unique identifiers of the OS
+For a more generic project designed to be a starter pack for Ansible tower
+check out my other repo ansible-tower-starter.
