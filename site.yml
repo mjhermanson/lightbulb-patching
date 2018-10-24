@@ -6,6 +6,8 @@
   roles:
     - common
     - linux
+  tags:
+    - configuration
 
 
 - name: "Checking Database Configuration"
