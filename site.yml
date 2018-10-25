@@ -16,6 +16,8 @@
     - vars/vault
   roles:
     - databases
+  tags:
+    - configuration
 
 - name: "Checking Webserver Configuration"
   hosts: web
@@ -23,7 +25,8 @@
     - vars/vault
   roles:
     - webservers
-
+  tags:
+    - configuration
 
 - name: "Checking Windows Configuration"
   hosts: windows
@@ -33,3 +36,5 @@
   roles:
     - common
     - windows
+  tags:
+    - configuration
