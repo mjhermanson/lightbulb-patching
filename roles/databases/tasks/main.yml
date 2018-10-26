@@ -19,8 +19,7 @@
     name: mariadb
     state: stopped
   tags:
-    - stop_database
-    - never
+    - stopped
 
 - name: Ensure mariadb is running
   service:
