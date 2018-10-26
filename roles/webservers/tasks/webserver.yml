@@ -4,7 +4,7 @@
     name: httpd
     state: installed
   tags:
-    - install
+    - running
 - name: Stopping apache
   service:
     name: httpd
@@ -16,6 +16,5 @@
     name: httpd
     state: started
   tags:
-    - install
+    - running
     - start_webserver
-
