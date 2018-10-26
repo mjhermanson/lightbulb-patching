@@ -6,9 +6,6 @@
   roles:
     - common
     - linux
-  tags:
-    - configuration
-
 
 - name: "Checking Database Configuration"
   hosts: linux_databases
@@ -16,8 +13,6 @@
     - vars/vault
   roles:
     - databases
-  tags:
-    - configuration
 
 - name: "Checking Webserver Configuration"
   hosts: linux_webservers
@@ -25,8 +20,6 @@
     - vars/vault
   roles:
     - webservers
-  tags:
-    - configuration
 
 - name: "Checking Windows Configuration"
   hosts: windows
@@ -36,5 +29,3 @@
   roles:
     - common
     - windows
-  tags:
-    - configuration
