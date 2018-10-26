@@ -2,29 +2,26 @@
 - name: Ensure WEBSERVER is in roles.txt
   lineinfile:
     path: /etc/ansible/roles.txt
-    line: 'ROLE: webserver'
+    line: 'Webserver is configured to be running'
     create: yes
+  tags:
+    - running
 
 - name: Ensure apache is installed
   yum:
     name: httpd
     state: installed
   tags:
-    - install
-    - configuration
+    - running
 - name: Stopping apache
   service:
     name: httpd
     state: stopped
   tags:
-    - stop_webserver
-    - never
+    - stopped
 - name: Ensure apache is running
   service:
     name: httpd
     state: started
   tags:
-    - install
-    - start_webserver
-    - configuration
-
+    - running
