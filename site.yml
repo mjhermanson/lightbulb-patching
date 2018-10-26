@@ -11,7 +11,7 @@
 
 
 - name: "Checking Database Configuration"
-  hosts: db
+  hosts: linux_databases
   vars_files:
     - vars/vault
   roles:
@@ -20,7 +20,7 @@
     - configuration
 
 - name: "Checking Webserver Configuration"
-  hosts: web
+  hosts: linux_webservers
   vars_files:
     - vars/vault
   roles:

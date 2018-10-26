@@ -1,11 +1,11 @@
 ---
 - name: "webserver"
-  hosts: web
+  hosts: linux_webservers
   become: yes
   tags:
     - webservers
-  tasks: 
-  roles: 
+  tasks:
+  roles:
     - webservers
 
 # Enable this when we have an app to install
@@ -14,16 +14,16 @@
 #  become: yes
 #  tags:
 #    - start_appserver
-#  tasks: 
+#  tasks:
 #    - include_playbook: appserver.yml
-#      tags: 
+#      tags:
 #        - install
 
 - name: "Database"
-  hosts: all
+  hosts: linux_databases
   become: yes
   tags:
     - database
-  tasks: 
-  roles: 
+  tasks:
+  roles:
     - databases
