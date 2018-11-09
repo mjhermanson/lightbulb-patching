@@ -1,8 +1,6 @@
 # it is suggested that these be encrypted with ansible-vault:
 # ansible-vault edit group_vars/windows.yml
 
-ansible_user: Ansible
-ansible_password: RedHat123
 ansible_port: 5986
 ansible_connection: winrm
 become_method: runas
