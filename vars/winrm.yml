@@ -5,3 +5,4 @@ ansible_user: Ansible
 ansible_password: RedHat123
 ansible_port: 5986
 ansible_connection: winrm
+become_method: runas
