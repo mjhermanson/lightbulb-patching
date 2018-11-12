@@ -27,3 +27,17 @@
   tasks:
   roles:
     - databases
+
+- name: Microsoft Windows patching
+  hosts: windows
+  import_tasks:
+    - windows_patching.yml
+  tags:
+    - patches
+
+- name: RHEL based patching
+  hosts: linux
+  import_tasks:
+    - rhel-like_patching.yml
+  tags:
+    - patches
