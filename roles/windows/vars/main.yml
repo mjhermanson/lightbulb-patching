@@ -1,5 +1,3 @@
 ---
 vars_files:
   - vars/winrm.yml
-  - vars/windows_become.yml
-  - vars/windows.yml

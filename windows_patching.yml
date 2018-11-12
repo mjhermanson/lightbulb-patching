@@ -2,18 +2,18 @@
 - name: Patch Windows server(s)
   gather_facts: "no"
   vars_files:
-    - vars/windows.yml
+    - vars/winrm.yml
   hosts:
-    - "{{ windows_patch_hosts }}"
-  #  - windows
+  #  - "{{ windows_patch_hosts }}"
+    - windows
   tasks:
 # Check if there are missing updates
     - block:
         - name: Check for missing updates.
-          win_updates: 
+          win_updates:
            state: searched
           register: update_count
- 
+
     #Install missing updates only if at least one is missing
     - block:
         - name: Install missing updates.

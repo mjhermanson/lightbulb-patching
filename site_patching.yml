@@ -4,7 +4,6 @@
   become: yes
   tags:
     - webservers
-  tasks:
   roles:
     - webservers
 
@@ -24,7 +23,6 @@
   become: yes
   tags:
     - database
-  tasks:
   roles:
     - databases
 
