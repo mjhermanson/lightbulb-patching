@@ -29,13 +29,11 @@
     - databases
 
 - name: Microsoft Windows patching
-  hosts: windows
   import_playbook: windows_patching.yml
   tags:
     - patches
 
 - name: RHEL based patching
-  hosts: linux
   import_playbook: rhel-like_patching.yml
   tags:
     - patches
