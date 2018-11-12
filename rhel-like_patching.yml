@@ -3,7 +3,7 @@
   become: yes
   gather_facts: yes
   hosts:
-    - all
+    - linux
   vars_files:
     - vars/vault
   roles:
@@ -27,7 +27,7 @@
   become: "yes"
   gather_facts: "no"
   hosts:
-    - all
+    - linux
   tasks:
     - name: Downloading updates
       command: yum update --downloadonly
