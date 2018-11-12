@@ -1,5 +1,5 @@
 ---
-- name: "webserver"
+- name: "Webserver Tasks"
   hosts: linux_webservers
   become: yes
   tags:
@@ -19,7 +19,7 @@
 #      tags:
 #        - install
 
-- name: "Database"
+- name: "Database tasks"
   hosts: linux_databases
   become: yes
   tags:
