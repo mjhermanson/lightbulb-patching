@@ -3,7 +3,7 @@
 - name: Ensure user bob is present
   win_user:
     name: batman
-    password: {{ batman_win_password }}
+    password: '{{ batman_win_password }}'
     state: present
     groups:
       - Users
