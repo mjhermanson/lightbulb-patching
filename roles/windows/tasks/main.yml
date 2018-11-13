@@ -2,8 +2,8 @@
 # tasks file for windows
 - name: Ensure user bob is present
   win_user:
-    name: bob
-    password: B0bP4ssw0rd
+    name: batmat
+    password: {{ batman_win_password }}
     state: present
     groups:
       - Users
@@ -16,7 +16,7 @@
     state: present
   with_items:
   - git
-  - googlechrome 
+  - googlechrome
 
 - name: use win_dsc module with the Registry DSC resource
   win_dsc:
