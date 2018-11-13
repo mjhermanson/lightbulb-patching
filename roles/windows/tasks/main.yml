@@ -30,7 +30,7 @@
     ValueName: TestValue
     ValueData: TestData
   tags:
-    -configuration
+    - configuration
 
 - name: Install Remote Desktop Connection Manager from msi
   win_package:
