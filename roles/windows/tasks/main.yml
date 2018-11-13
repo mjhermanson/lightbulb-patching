@@ -2,7 +2,7 @@
 # tasks file for windows
 - name: Ensure user bob is present
   win_user:
-    name: batmat
+    name: batman
     password: {{ batman_win_password }}
     state: present
     groups:
