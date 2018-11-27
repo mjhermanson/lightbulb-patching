@@ -30,4 +30,5 @@
               - UpdateRollups
               - CriticalUpdates
               - SecurityUpdates
+            reboot: true
           register: update_result
