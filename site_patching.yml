@@ -29,9 +29,9 @@
 - name: Microsoft Windows patching
   import_playbook: windows_patching.yml
   tags:
-    - patches
+    - win_patches
 
 - name: RHEL based patching
   import_playbook: rhel-like_patching.yml
   tags:
-    - patches
+    - el_patches

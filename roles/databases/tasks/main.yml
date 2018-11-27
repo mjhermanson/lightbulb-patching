@@ -5,25 +5,25 @@
     create: yes
     line: 'Database is configured to run'
   tags:
-    - running
+    - db_running
 
 - name: Ensuring mariadb is installed
   yum:
     name: mariadb-server
     state: installed
   tags:
-    - running
+    - db_running
 
 - name: Stopping mariadb (if needed)
   service:
     name: mariadb
     state: stopped
   tags:
-    - stopped
+    - db_stopped
 
 - name: Ensure mariadb is running
   service:
     name: mariadb
     state: started
   tags:
-    - running
+    - db_running

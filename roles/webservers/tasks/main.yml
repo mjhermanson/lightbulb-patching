@@ -12,16 +12,16 @@
     name: httpd
     state: installed
   tags:
-    - running
+    - web_running
 - name: Stopping apache
   service:
     name: httpd
     state: stopped
   tags:
-    - stopped
+    - web_stopped
 - name: Ensure apache is running
   service:
     name: httpd
     state: started
   tags:
-    - running
+    - web_running
