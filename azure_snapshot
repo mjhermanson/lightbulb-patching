@@ -1,3 +1,4 @@
+---
 - name: Create an image from os disk
   azure_rm_image:
     resource_group: sled-tower-demo
