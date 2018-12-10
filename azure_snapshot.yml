@@ -1,7 +1,7 @@
 ---
 - name: Create an image from os disk
   hosts: localhost #we are calling azure api from the ansible control node
-  tasks"
+  tasks:
     - name: Calling out to azure to create image
       azure_rm_image:
         resource_group: sled-tower-demo
