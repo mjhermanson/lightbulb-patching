@@ -1,0 +1,6 @@
+- name: Create an image from os disk
+  azure_rm_image:
+    resource_group: sled-tower-demo
+    name: image of node1 for patching demo
+    source: subscriptions/4acd2d0f-1997-4e3a-8f0e-6688e835a25e/resourceGroups/sled-tower-demo/providers/Microsoft.Compute/disks/node1_OsDisk_1_6708aa7980a34486b9ddfd3a8ccbe4ad
+    os_type: Linux
