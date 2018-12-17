@@ -4,5 +4,5 @@
 ansible_port: 5986
 ansible_connection: winrm
 ansible_become_method: runas
-ansible_become_user: administrator
+ansible_become_user: batman
 ansible_winrm_server_cert_validation: ignore
