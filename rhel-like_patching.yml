@@ -22,7 +22,7 @@
             password: "{{ rhn_pass }}"
             pool_ids: "{{ rhn_pool_id }}"
           when: sub_status.rc == 1
-      when: ansible_distribution == "RedHat" and not ansible_domain == "ec2.internal"
+      when: ansible_distribution == "RedHat" and not ansible_dns.search== "ec2.internal"
 - name: Patch RHEL/CentOS server(s)
   become: "yes"
   gather_facts: "no"
