@@ -2,8 +2,6 @@
 - name: "Webserver Tasks"
   hosts: linux_webservers
   become: yes
-  tags:
-    - webservers
   roles:
     - webservers
 
@@ -21,8 +19,6 @@
 - name: "Database tasks"
   hosts: linux_databases
   become: yes
-#  tags:
-#    - database
   roles:
     - databases
 
