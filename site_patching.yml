@@ -21,8 +21,8 @@
 - name: "Database tasks"
   hosts: linux_databases
   become: yes
-  tags:
-    - database
+#  tags:
+#    - database
   roles:
     - databases
 
