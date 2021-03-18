@@ -30,7 +30,7 @@
     - linux
   tasks:
     - name: Downloading updates
-      command: yum update --downloadonly
+      shell: yum update --downloadonly -y
     - name: Update all available packages
       yum: name=* state=latest
       notify: reboot sequence
