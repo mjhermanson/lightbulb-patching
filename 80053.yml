@@ -1,8 +1,3 @@
-# file: 80053.yaml
----
-- hosts: 80053_hosts
-  become: yes
-  vars:
-    scap_reports_dir: ~/scap_reports
+- hosts: all
   roles:
-    - ansible-role-800-53
+     - { role: RedHatOfficial.rhel8_cui }
