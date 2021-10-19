@@ -7,7 +7,7 @@
   vars_files:
     - vars/vault
   roles:
-    - { role: redhataccess.redhat-access-insights-client, when: ansible_distribution == "RedHat" }
+#    - { role: redhataccess.redhat-access-insights-client, when: ansible_distribution == "RedHat" }
   tasks:
     - block:
         - name: check to see if system is already registered
