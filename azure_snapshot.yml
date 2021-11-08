@@ -3,6 +3,8 @@
   hosts: localhost #we are calling azure api from the ansible control node
   tasks:
     - name: Calling out to azure to create snapshot
+      ad_user: "{{ ad_user }}"
+      password: "{{ ad_password }}"
       azure_rm_image:
         resource_group: "{{ az_resource_group }}"
         name: "{{ az_snap_name }}"
