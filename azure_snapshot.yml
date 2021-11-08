@@ -3,9 +3,9 @@
   hosts: localhost #we are calling azure api from the ansible control node
   tasks:
     - name: Calling out to azure to create snapshot
-      ad_user: "{{ ad_user }}"
-      password: "{{ ad_password }}"
       azure_rm_image:
+        ad_user: "{{ ad_user }}"
+        password: "{{ ad_password }}"
         resource_group: "{{ az_resource_group }}"
         name: "{{ az_snap_name }}"
         source: '/subscriptions/"{az_sub_id}}"/resourceGroups/"{{az_resource_group}}"/providers/Microsoft.Compute/disks/"{{az_disk_name}}"'
