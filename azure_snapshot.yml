@@ -3,7 +3,7 @@
   hosts: localhost #we are calling azure api from the ansible control node
   tasks:
     - name: Calling out to azure to create snapshot
-      azure_rm_image:
+      azure_rm_snapshot:
         client_id: '{{ lookup("env", "AZ_CLIENT_ID") }}'
         secret: '{{ lookup("env", "AZ_CLIENT_SECERT") }}'
         tenet: '{{ lookup("env", "AZ_TENET_ID") }}'
@@ -15,5 +15,4 @@
           source: '/subscriptions/{{az_sub_id}}/resourceGroups/{{az_resource_group}}/providers/Microsoft.Compute/disks/{{az_disk_name}}'
           create_option: 
           create_option: Copy
-        os_type: "{{ az_os_type }}"
 
