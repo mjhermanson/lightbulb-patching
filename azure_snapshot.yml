@@ -12,6 +12,6 @@
         resource_group: "{{ az_resource_group }}"
         name: "{{ az_snap_name }}"
         creation_data:
-          source: '/subscriptions/{{az_sub_id}}/resourceGroups/{{az_resource_group}}/providers/Microsoft.Compute/disks/{{az_disk_name}}'
+          source_id: '/subscriptions/{{az_sub_id}}/resourceGroups/{{az_resource_group}}/providers/Microsoft.Compute/disks/{{az_disk_name}}'
           create_option: Copy
 
