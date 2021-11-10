@@ -10,3 +10,4 @@
         name: "{{ az_snap_name }}"
         source: '/subscriptions/{{az_sub_id}}/resourceGroups/{{az_resource_group}}/providers/Microsoft.Compute/disks/{{az_disk_name}}'
         os_type: "{{ az_os_type }}"
+        create_option: Copy
