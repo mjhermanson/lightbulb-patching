@@ -6,7 +6,7 @@
       azure_rm_snapshot:
         client_id: '{{ lookup("env", "AZ_CLIENT_ID") }}'
         secret: '{{ lookup("env", "AZ_CLIENT_SECERT") }}'
-        tenet: '{{ lookup("env", "AZ_TENET_ID") }}'
+        tenant: '{{ lookup("env", "AZ_TENET_ID") }}'
  #       ad_user: "{{ ad_user }}"
  #       password: "{{ ad_password }}"
         resource_group: "{{ az_resource_group }}"
