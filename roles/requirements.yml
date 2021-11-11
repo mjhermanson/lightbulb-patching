@@ -1,8 +1,0 @@
----
-collections:
-  - name: ansible.utils
-  - name: azure.azcollection
-    version: 1.10.0
-#
-#- src: redhataccess.redhat-access-insights-client
-#- src: RedHatOfficial.rhel8_cui 
