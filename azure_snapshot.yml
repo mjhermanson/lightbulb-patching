@@ -3,7 +3,7 @@
   hosts: localhost #we are calling azure api from the ansible control node
   tasks:
     - name: Calling out to azure to create snapshot
-      azure.azcollection.azure_rm_snapshot:
+      azure_rm_snapshot:
         client_id: '{{ lookup("env", "AZ_CLIENT_ID") }}'
         secret: '{{ lookup("env", "AZ_CLIENT_SECERT") }}'
         tenant: '{{ lookup("env", "AZ_TENET_ID") }}'
