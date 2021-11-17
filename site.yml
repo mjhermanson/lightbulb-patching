@@ -21,11 +21,11 @@
   roles:
     - webservers
 
-- name: "Checking Windows Configuration"
-  hosts: windows
-  vars_files:
-    - vars/vault
-    - vars/winrm.yml
-  roles:
-    - common
-    - windows
+#- name: "Checking Windows Configuration"
+#  hosts: windows
+#  vars_files:
+#    - vars/vault
+#    - vars/winrm.yml
+#  roles:
+#    - common
+#    - windows
